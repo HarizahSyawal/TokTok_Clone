@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:toktok_app/_mock_data/mock.dart';
+import 'package:toktok_app/widgets/video_detail.dart';
+import 'package:toktok_app/widgets/video_tile.dart';
 
 import '../widgets/home_side_bar.dart';
 
@@ -11,6 +14,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool _isFollowingSelected = true;
+  int _snappedPageIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -61,16 +65,21 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         body: PageView.builder(
-            onPageChanged: (int page) => {},
+            onPageChanged: (int page) => {
+                  setState(() {
+                    _snappedPageIndex = page;
+                  }),
+                },
             scrollDirection: Axis.vertical,
-            itemCount: 10,
+            itemCount: videos.length,
             itemBuilder: (context, index) {
               return Stack(
-                alignment: Alignment.center,
+                alignment: Alignment.bottomCenter,
                 children: [
-                  Container(
-                    height: MediaQuery.of(context).size.height / 3,
-                    color: Colors.amber,
+                  VideoTile(
+                    video: videos[index],
+                    currentIndex: index,
+                    snappedPageIndex: _snappedPageIndex,
                   ),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.end,
@@ -78,14 +87,15 @@ class _HomePageState extends State<HomePage> {
                       Expanded(
                         flex: 3,
                         child: Container(
-                          color: Colors.purple,
-                        ),
+                            height: MediaQuery.of(context).size.height / 4,
+                            child: VideoDetail(video: videos[index])),
                       ),
                       Expanded(
                         child: Container(
                           height: MediaQuery.of(context).size.height / 1.75,
-                          color: Colors.pink,
-                          child: HomeSideBar(),
+                          child: HomeSideBar(
+                            video: videos[index],
+                          ),
                         ),
                       ),
                     ],
