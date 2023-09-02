@@ -63,7 +63,7 @@ class _HomeSideBarState extends State<HomeSideBar>
                   CircleAvatar(
                     radius: 12,
                     backgroundImage: NetworkImage(
-                        'https://instagram.fkul3-4.fna.fbcdn.net/v/t51.2885-19/309338404_493944315918418_3470607335458966523_n.jpg?stp=dst-jpg_s320x320&_nc_ht=instagram.fkul3-4.fna.fbcdn.net&_nc_cat=110&_nc_ohc=rs0lLZ3qzXwAX_-x-sL&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfAHyzX1fALQzt5-1yPddzVM7DV2tyR_Vw-FyV0Ily3t4w&oe=64EE0B78&_nc_sid=8b3546'),
+                        'https://lh3.googleusercontent.com/a/AAcHTtf7fyEUA8CdL4pi-jK6z3okiDijfMDz9j_z4qU3rzZaGeg=s576-c-no'),
                   ),
                 ],
               ),
